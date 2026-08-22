@@ -24,7 +24,6 @@ export async function rankWithGemini({
 }): Promise<RankedCandidate[]> {
   if (candidates.length === 0) return [];
 
-  const allowedIds = new Set(candidates.map((item) => item.hospital.hpid));
   const ai = new GoogleGenAI({ apiKey });
   const safeIncident = {
     preKtas: incident.preKtas,
@@ -71,7 +70,24 @@ export async function rankWithGemini({
   });
 
   if (!response.text) throw new Error("Gemini가 빈 응답을 반환했습니다.");
-  const ranking = AiRankingSchema.parse(JSON.parse(response.text));
+  return buildRankedFromAiResponse({ rawText: response.text, candidates });
+}
+
+/**
+ * LLM 응답을 검증해 순위로 변환한다. 네트워크와 분리된 안전 경계이며,
+ * 어떤 검증이라도 실패하면 예외를 던져 호출부가 결정론 순위로 되돌리게 한다.
+ */
+export function buildRankedFromAiResponse({
+  rawText,
+  candidates,
+}: {
+  rawText: string;
+  candidates: EvaluatedCandidate[];
+}): RankedCandidate[] {
+  if (candidates.length === 0) return [];
+
+  const allowedIds = new Set(candidates.map((item) => item.hospital.hpid));
+  const ranking = AiRankingSchema.parse(JSON.parse(rawText));
   const expectedCount = Math.min(3, candidates.length);
   if (ranking.ranked.length !== expectedCount) {
     throw new Error(
@@ -90,12 +106,16 @@ export async function rankWithGemini({
 
   // AI 안전 경계: 이동시간이 최속 적격 후보보다 크게 뒤처지는 병원을
   // 1순위로 올리면 임상적으로 위험하므로 결정론 순위로 되돌린다.
-  const fastestEligibleMinutes = Math.min(
-    ...candidates
-      .filter((candidate) => candidate.eligibility === "CONFIRMED")
-      .map((candidate) => candidate.route.durationMinutes),
-    ...candidates.map((candidate) => candidate.route.durationMinutes),
-  );
+  // 비교 기준은 CONFIRMED 후보로 한정한다. 더 가깝지만 확인이 필요한 후보를
+  // 기준으로 삼으면, 최종치료가 확인된 병원을 고른 정당한 판단까지 폐기된다.
+  const confirmedMinutes = candidates
+    .filter((candidate) => candidate.eligibility === "CONFIRMED")
+    .map((candidate) => candidate.route.durationMinutes);
+  const comparisonPool =
+    confirmedMinutes.length > 0
+      ? confirmedMinutes
+      : candidates.map((candidate) => candidate.route.durationMinutes);
+  const fastestEligibleMinutes = Math.min(...comparisonPool);
   const topCandidate = byId.get(ids[0]);
   if (
     topCandidate &&
