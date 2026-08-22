@@ -1,9 +1,14 @@
 import { XMLParser } from "fast-xml-parser";
+import { AsyncTtlCache } from "@/lib/cache/async-ttl";
 
 const NEMC_BASE_URL =
   "https://apis.data.go.kr/B552657/ErmctInfoInqireService";
 
 type Params = Record<string, string | number | undefined>;
+
+const responseCache = new AsyncTtlCache<string, unknown[]>(64);
+const HOSPITAL_LIST_TTL_MS = 5 * 60_000;
+const REALTIME_TTL_MS = 30_000;
 
 export class NemcApiError extends Error {
   constructor(
@@ -44,47 +49,60 @@ export class NemcClient {
   }
 
   private async request<T>(operation: string, params: Params): Promise<T[]> {
-    const response = await fetch(this.buildUrl(operation, params), {
-      headers: { Accept: "application/xml" },
-      signal: AbortSignal.timeout(10_000),
-      cache: "no-store",
+    const cacheKey = `${operation}:${JSON.stringify(params)}`;
+    const ttlMs =
+      operation === "getEgytListInfoInqire"
+        ? HOSPITAL_LIST_TTL_MS
+        : REALTIME_TTL_MS;
+    const items = await responseCache.get(cacheKey, ttlMs, async () => {
+      const response = await fetch(this.buildUrl(operation, params), {
+        headers: { Accept: "application/xml" },
+        signal: AbortSignal.timeout(10_000),
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new NemcApiError(
+          `NEMC HTTP ${response.status} ${response.statusText}`,
+          operation,
+        );
+      }
+
+      const payload = this.parser.parse(await response.text());
+      const serviceError = payload?.OpenAPI_ServiceResponse?.cmmMsgHeader;
+      if (serviceError) {
+        throw new NemcApiError(
+          String(
+            serviceError.returnAuthMsg ??
+              serviceError.errMsg ??
+              "공공데이터 인증 오류",
+          ),
+          operation,
+        );
+      }
+
+      const header = payload?.response?.header;
+      if (header?.resultCode && header.resultCode !== "00") {
+        throw new NemcApiError(
+          `NEMC ${header.resultCode}: ${header.resultMsg ?? "알 수 없는 오류"}`,
+          operation,
+        );
+      }
+
+      return asArray<unknown>(payload?.response?.body?.items?.item);
     });
 
-    if (!response.ok) {
-      throw new NemcApiError(
-        `NEMC HTTP ${response.status} ${response.statusText}`,
-        operation,
-      );
-    }
-
-    const payload = this.parser.parse(await response.text());
-    const serviceError = payload?.OpenAPI_ServiceResponse?.cmmMsgHeader;
-    if (serviceError) {
-      throw new NemcApiError(
-        String(
-          serviceError.returnAuthMsg ??
-            serviceError.errMsg ??
-            "공공데이터 인증 오류",
-        ),
-        operation,
-      );
-    }
-
-    const header = payload?.response?.header;
-    if (header?.resultCode && header.resultCode !== "00") {
-      throw new NemcApiError(
-        `NEMC ${header.resultCode}: ${header.resultMsg ?? "알 수 없는 오류"}`,
-        operation,
-      );
-    }
-
-    return asArray<T>(payload?.response?.body?.items?.item);
+    return items as T[];
   }
 
   getHospitalList(region: string) {
     return this.request<RawHospital>(
       "getEgytListInfoInqire",
-      this.regionParams(region),
+      {
+        Q0: region,
+        pageNo: 1,
+        numOfRows: 500,
+      },
     );
   }
 
@@ -158,9 +176,35 @@ export interface RawRealtimeBeds {
 }
 
 export interface RawAcceptance {
+  [key: string]: string | undefined;
   hpid?: string;
   dutyName?: string;
+  MKioskTy1?: string;
+  MKioskTy2?: string;
   MKioskTy3?: string;
   MKioskTy4?: string;
+  MKioskTy5?: string;
+  MKioskTy6?: string;
+  MKioskTy7?: string;
+  MKioskTy8?: string;
+  MKioskTy9?: string;
+  MKioskTy10?: string;
+  MKioskTy11?: string;
+  MKioskTy12?: string;
+  MKioskTy13?: string;
+  MKioskTy14?: string;
+  MKioskTy15?: string;
+  MKioskTy16?: string;
+  MKioskTy17?: string;
+  MKioskTy18?: string;
+  MKioskTy19?: string;
+  MKioskTy20?: string;
+  MKioskTy21?: string;
+  MKioskTy22?: string;
+  MKioskTy23?: string;
+  MKioskTy24?: string;
+  MKioskTy25?: string;
+  MKioskTy26?: string;
+  MKioskTy27?: string;
   MKioskTy28?: string;
 }

@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-// .env 파일에 `KEY=` 형태로 남아 있는 항목은 빈 문자열로 로드된다.
-// 미설정과 같게 다뤄야 키 없이도 데모 모드가 동작한다.
 const blankToUndefined = (value: unknown) =>
   typeof value === "string" && value.trim() === "" ? undefined : value;
 
@@ -12,7 +10,7 @@ const ServerEnvSchema = z.object({
   GEMINI_API_KEY: optionalKey,
   GEMINI_MODEL: z.preprocess(
     blankToUndefined,
-    z.string().min(1).default("gemini-2.5-flash"),
+    z.string().min(1).default("gemini-3.5-flash-lite"),
   ),
   KAKAO_MOBILITY_REST_KEY: optionalKey,
 });

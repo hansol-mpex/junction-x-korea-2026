@@ -1,5 +1,4 @@
-import type { RouteEstimate } from "@/lib/domain/schemas";
-import { estimateRoadRoute, haversineKm } from "./haversine";
+import { AsyncTtlCache } from "@/lib/cache/async-ttl";
 
 interface KakaoDirectionsResponse {
   routes?: Array<{
@@ -11,6 +10,15 @@ interface KakaoDirectionsResponse {
   }>;
 }
 
+export interface LiveRouteEstimate {
+  distanceKm: number;
+  durationMinutes: number;
+  mode: "LIVE";
+}
+
+const routeCache = new AsyncTtlCache<string, LiveRouteEstimate>(500);
+const ROUTE_TTL_MS = 60_000;
+
 export async function getRouteEstimate({
   origin,
   destination,
@@ -18,23 +26,22 @@ export async function getRouteEstimate({
 }: {
   origin: { lat: number; lng: number };
   destination: { lat: number; lng: number };
-  apiKey?: string;
-}): Promise<{ route: RouteEstimate; warning?: string }> {
-  const directDistance = haversineKm(origin, destination);
-  if (!apiKey) {
-    return {
-      route: estimateRoadRoute(directDistance),
-      warning: "카카오 경로 키가 없어 직선거리 기반 추정치를 사용했습니다.",
-    };
-  }
+  apiKey: string;
+}): Promise<LiveRouteEstimate> {
+  const cacheKey = [
+    origin.lat.toFixed(5),
+    origin.lng.toFixed(5),
+    destination.lat.toFixed(5),
+    destination.lng.toFixed(5),
+  ].join(":");
 
-  const query = new URLSearchParams({
-    origin: `${origin.lng},${origin.lat}`,
-    destination: `${destination.lng},${destination.lat}`,
-    priority: "RECOMMEND",
-  });
+  return routeCache.get(cacheKey, ROUTE_TTL_MS, async () => {
+    const query = new URLSearchParams({
+      origin: `${origin.lng},${origin.lat}`,
+      destination: `${destination.lng},${destination.lat}`,
+      priority: "RECOMMEND",
+    });
 
-  try {
     const response = await fetch(
       `https://apis-navi.kakaomobility.com/v1/directions?${query}`,
       {
@@ -59,18 +66,9 @@ export async function getRouteEstimate({
     }
 
     return {
-      route: {
-        distanceKm: Math.round((summary.distance / 1000) * 10) / 10,
-        durationMinutes: Math.round(summary.duration / 60),
-        mode: "LIVE",
-      },
+      distanceKm: Math.round((summary.distance / 1000) * 10) / 10,
+      durationMinutes: Math.round(summary.duration / 60),
+      mode: "LIVE",
     };
-  } catch (error) {
-    return {
-      route: estimateRoadRoute(directDistance),
-      warning: `카카오 경로 조회 실패로 추정치를 사용했습니다: ${
-        error instanceof Error ? error.message : "알 수 없는 오류"
-      }`,
-    };
-  }
+  });
 }

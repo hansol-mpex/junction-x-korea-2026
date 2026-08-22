@@ -34,7 +34,36 @@ yarn-error.log*
 .env*
 !.env.example
 
-# local copilot session logs
+# AI agents and local assistant artifacts
+AGENTS*.md
+CLAUDE*.md
+GEMINI*.md
+AI/
+.ai/
+.agent/
+.agents/
+.aider*
+.claude/
+.cline/
+.codex/
+.continue/
+.copilot/
+.copilot-workspace/
+.copilotignore
+.cursor/
+.cursorignore
+.cursorindexingignore
+.gemini/
+.mcp.json
+.openhands/
+.roo/
+.taskmaster/
+.windsurf/
+.github/agents/
+.github/copilot-instructions.md
+.github/instructions/
+.github/prompts/
+.github/workflows/copilot-setup-steps.yml
 copilot-session-*.md
 
 # vercel

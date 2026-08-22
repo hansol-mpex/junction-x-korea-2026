@@ -15,13 +15,3 @@ export function haversineKm(
     Math.cos(lat1) * Math.cos(lat2) * Math.sin(deltaLng / 2) ** 2;
   return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(value));
 }
-
-export function estimateRoadRoute(distanceKm: number) {
-  const adjustedDistance = distanceKm * 1.28;
-  const durationMinutes = (adjustedDistance / 55) * 60 + 5;
-  return {
-    distanceKm: Math.round(adjustedDistance * 10) / 10,
-    durationMinutes: Math.round(durationMinutes),
-    mode: "ESTIMATED" as const,
-  };
-}

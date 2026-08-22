@@ -8,7 +8,6 @@ export function GET() {
   return NextResponse.json({
     status: missingKeys.length === 0 ? "ready" : "degraded",
     missingKeys,
-    demoAvailable: true,
     checkedAt: new Date().toISOString(),
   });
 }

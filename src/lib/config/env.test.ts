@@ -37,7 +37,7 @@ describe("서버 환경변수", () => {
 
   it("빈 GEMINI_MODEL은 기본 모델명으로 대체된다", () => {
     process.env.GEMINI_MODEL = "   ";
-    expect(getServerEnv().GEMINI_MODEL).toBe("gemini-2.5-flash");
+    expect(getServerEnv().GEMINI_MODEL).toBe("gemini-3.5-flash-lite");
   });
 
   it("빈 문자열 키는 미설정으로 보고된다", () => {
