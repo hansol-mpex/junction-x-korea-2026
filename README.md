@@ -66,7 +66,6 @@ http://localhost:3000 접속 → 영양군 추락 시나리오가 자동 실행�
 | `GEMINI_API_KEY` | 아니오 | 결정론 순위로 폴백 |
 | `GEMINI_MODEL` | 아니오 | 기본 `gemini-2.5-flash` |
 | `KAKAO_MOBILITY_REST_KEY` | 아니오 | 직선거리 기반 이동시간 추정 |
-| `NEXT_PUBLIC_KAKAO_MAP_APP_KEY` | 아니오 | 좌표 기반 개략도로 대체 |
 
 `NEMC_API_KEY`는 공공데이터포털에서 발급받은 **Decoding 키**를 넣습니다.
 
@@ -133,9 +132,7 @@ Vercel을 권장합니다. 서버 Route Handler에서 API 키를 다루므로 �
 1. GitHub 저장소를 Vercel에 연결합니다 (프레임워크 자동 감지: Next.js).
 2. Project Settings → Environment Variables에 위 표의 키를 등록합니다. 값이 없으면 등록하지 않습니다
    (빈 문자열도 미설정으로 처리되지만 남기지 않는 편이 깔끔합니다).
-3. `NEXT_PUBLIC_KAKAO_MAP_APP_KEY`를 쓴다면 카카오 개발자 콘솔에서 허용 도메인을
-   Vercel 도메인과 `http://localhost:3000`으로 제한합니다.
-4. 배포 후 `/api/health`로 `missingKeys`를 확인합니다.
+3. 배포 후 `/api/health`로 `missingKeys`를 확인합니다.
 
 발표 백업으로 로컬 `npm run build && npm start`를 준비해 두는 것을 권장합니다.
 데모 스냅샷 모드는 외부 API 없이 동작합니다.

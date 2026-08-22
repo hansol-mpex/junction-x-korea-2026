@@ -12,7 +12,6 @@ import {
 import { CareChainTimeline } from "./care-chain-timeline";
 import { ComparisonTable } from "./comparison-table";
 import { NearestRejection } from "./nearest-rejection";
-import { OperationsMap } from "./operations-map";
 import { RecommendationCard } from "./recommendation-card";
 import { DataLimitsPanel, SelectionFunnel } from "./selection-funnel";
 import { SourceStatusBar } from "./source-status";
@@ -62,7 +61,7 @@ const consciousnessLabels = {
 const tabs = [
   { id: "timeline", label: "치료 연속성" },
   { id: "compare", label: "후보 비교" },
-  { id: "map", label: "지도 · 상세" },
+  { id: "detail", label: "후보 상세" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
@@ -379,44 +378,15 @@ export function Dashboard() {
                   <ComparisonTable recommendations={result.recommendations} />
                 )}
 
-                {tab === "map" && (
-                  <>
-                    <section className="panel">
-                      <div className="panel-head">
-                        <h2>경북 · 인접 권역 육로 탐색</h2>
-                        <span>사고지점과 후보 병원 위치</span>
-                        <span className="panel-head-right">
-                          탐색 한도 · 주행 120분 / 직선 150km
-                        </span>
-                      </div>
-                      <div className="map-wrap">
-                        <OperationsMap
-                          location={incident.location}
-                          recommendations={result.recommendations}
-                          onPick={(location) =>
-                            setIncident((current) => ({
-                              ...current,
-                              location: {
-                                ...current.location,
-                                ...location,
-                                address: `지도 선택 위치 ${location.lat.toFixed(
-                                  4,
-                                )}, ${location.lng.toFixed(4)}`,
-                              },
-                            }))
-                          }
-                        />
-                      </div>
-                    </section>
-                    <div className="card-list">
-                      {result.recommendations.map((candidate) => (
-                        <RecommendationCard
-                          candidate={candidate}
-                          key={candidate.hospital.hpid}
-                        />
-                      ))}
-                    </div>
-                  </>
+                {tab === "detail" && (
+                  <div className="card-list">
+                    {result.recommendations.map((candidate) => (
+                      <RecommendationCard
+                        candidate={candidate}
+                        key={candidate.hospital.hpid}
+                      />
+                    ))}
+                  </div>
                 )}
               </>
             )}
