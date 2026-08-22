@@ -1,0 +1,230 @@
+[
+  {
+    "hpid": "DEMO-YEONGYANG-01",
+    "name": "영양 지역응급의료기관 (데모)",
+    "address": "경상북도 영양군 영양읍",
+    "region": "경상북도",
+    "emergencyClassCode": "G004",
+    "emergencyClassName": "지역응급의료기관",
+    "isTraumaCenter": false,
+    "erPhone": "054-000-0619",
+    "mainPhone": "054-000-0006",
+    "lat": 36.6663,
+    "lng": 129.1125,
+    "erOperating": true,
+    "beds": {
+      "hvec": 2,
+      "hvoc": 0,
+      "hv3": 0,
+      "hv6": 0,
+      "hv9": 0,
+      "hv39": 0,
+      "hv60": 0,
+      "hvicc": 0
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "N1"
+    },
+    "acceptance": {
+      "MKioskTy3": "N",
+      "MKioskTy4": "N",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "N"
+    },
+    "sourceAgeMinutes": 11,
+    "sourceMode": "SNAPSHOT"
+  },
+  {
+    "hpid": "DEMO-ANDONG-01",
+    "name": "안동 권역외상 거점병원 (데모)",
+    "address": "경상북도 안동시",
+    "region": "경상북도",
+    "emergencyClassCode": "G001",
+    "emergencyClassName": "권역응급의료센터",
+    "isTraumaCenter": true,
+    "erPhone": "054-000-0119",
+    "mainPhone": "054-000-0001",
+    "lat": 36.5684,
+    "lng": 128.7283,
+    "erOperating": true,
+    "beds": {
+      "hvec": 5,
+      "hvoc": 2,
+      "hv3": 2,
+      "hv6": 1,
+      "hv9": 2,
+      "hv39": 1,
+      "hv60": 1,
+      "hvicc": 3
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "Y"
+    },
+    "acceptance": {
+      "MKioskTy3": "Y",
+      "MKioskTy4": "Y",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "Y"
+    },
+    "sourceAgeMinutes": 7,
+    "sourceMode": "SNAPSHOT"
+  },
+  {
+    "hpid": "DEMO-YEONGJU-01",
+    "name": "영주 지역응급병원 (데모)",
+    "address": "경상북도 영주시",
+    "region": "경상북도",
+    "emergencyClassCode": "G004",
+    "emergencyClassName": "지역응급의료기관",
+    "isTraumaCenter": false,
+    "erPhone": "054-000-0219",
+    "mainPhone": "054-000-0002",
+    "lat": 36.8057,
+    "lng": 128.624,
+    "erOperating": true,
+    "beds": {
+      "hvec": 2,
+      "hvoc": 0,
+      "hv3": 0,
+      "hv6": 0,
+      "hv9": 0,
+      "hv39": 0,
+      "hv60": 0,
+      "hvicc": 1
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "N1"
+    },
+    "acceptance": {
+      "MKioskTy3": "N",
+      "MKioskTy4": "N",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "N"
+    },
+    "sourceAgeMinutes": 5,
+    "sourceMode": "SNAPSHOT"
+  },
+  {
+    "hpid": "DEMO-DAEGU-01",
+    "name": "대구 상급응급병원 A (데모)",
+    "address": "대구광역시 중구",
+    "region": "대구광역시",
+    "emergencyClassCode": "G001",
+    "emergencyClassName": "권역응급의료센터",
+    "isTraumaCenter": true,
+    "erPhone": "053-000-0319",
+    "mainPhone": "053-000-0003",
+    "lat": 35.8662,
+    "lng": 128.604,
+    "erOperating": true,
+    "beds": {
+      "hvec": 7,
+      "hvoc": 3,
+      "hv3": 2,
+      "hv6": 2,
+      "hv9": 3,
+      "hv39": 2,
+      "hv60": 2,
+      "hvicc": 4
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "Y"
+    },
+    "acceptance": {
+      "MKioskTy3": "Y",
+      "MKioskTy4": "Y",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "Y"
+    },
+    "sourceAgeMinutes": 18,
+    "sourceMode": "SNAPSHOT"
+  },
+  {
+    "hpid": "DEMO-POHANG-01",
+    "name": "포항 권역응급병원 (데모)",
+    "address": "경상북도 포항시",
+    "region": "경상북도",
+    "emergencyClassCode": "G001",
+    "emergencyClassName": "권역응급의료센터",
+    "isTraumaCenter": false,
+    "erPhone": "054-000-0419",
+    "mainPhone": "054-000-0004",
+    "lat": 36.019,
+    "lng": 129.3435,
+    "erOperating": true,
+    "beds": {
+      "hvec": 4,
+      "hvoc": 2,
+      "hv3": 1,
+      "hv6": 1,
+      "hv9": 1,
+      "hv39": 0,
+      "hv60": 1,
+      "hvicc": 2
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "Y"
+    },
+    "acceptance": {
+      "MKioskTy3": "Y",
+      "MKioskTy4": "Y",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "Y"
+    },
+    "sourceAgeMinutes": 38,
+    "sourceMode": "SNAPSHOT"
+  },
+  {
+    "hpid": "DEMO-MUNGYEONG-01",
+    "name": "문경 지역응급센터 (데모)",
+    "address": "경상북도 문경시",
+    "region": "경상북도",
+    "emergencyClassCode": "G003",
+    "emergencyClassName": "지역응급의료센터",
+    "isTraumaCenter": false,
+    "erPhone": "054-000-0519",
+    "mainPhone": "054-000-0005",
+    "lat": 36.5861,
+    "lng": 128.1868,
+    "erOperating": true,
+    "beds": {
+      "hvec": 3,
+      "hvoc": 1,
+      "hv3": 1,
+      "hv6": 0,
+      "hv9": 0,
+      "hv39": 0,
+      "hv60": 1,
+      "hvicc": 1
+    },
+    "equipment": {
+      "hvctayn": "Y",
+      "hvventiayn": "Y"
+    },
+    "acceptance": {
+      "MKioskTy3": "UNKNOWN",
+      "MKioskTy4": "UNKNOWN",
+      "MKioskTy28": "Y"
+    },
+    "basicCapabilities": {
+      "MKioskTy4": "UNKNOWN"
+    },
+    "sourceAgeMinutes": 22,
+    "sourceMode": "SNAPSHOT"
+  }
+]
