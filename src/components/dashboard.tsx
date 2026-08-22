@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useEffect,
   useMemo,
@@ -560,6 +561,13 @@ export function Dashboard() {
     <div className="console">
       <header className="topbar">
         <div className="brand">
+          <Image
+            src="/songmin-mark.svg"
+            alt=""
+            width={30}
+            height={30}
+            priority
+          />
           <strong>송민</strong>
         </div>
         <div className="topbar-main">
