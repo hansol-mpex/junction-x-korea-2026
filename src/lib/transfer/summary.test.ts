@@ -16,6 +16,7 @@ describe("이송 후보 요약", () => {
       phone: "054-000-0000",
     });
 
+    expect(summary).toContain("송민 이송 후보 요약");
     expect(summary).toContain("선택 병원: 테스트병원");
     expect(summary).toContain("필요 치료영역: 수족지접합");
     expect(summary).toContain("30분 / 28.8km");

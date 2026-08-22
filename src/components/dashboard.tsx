@@ -560,7 +560,7 @@ export function Dashboard() {
     <div className="console">
       <header className="topbar">
         <div className="brand">
-          <strong>직결119</strong>
+          <strong>송민</strong>
         </div>
         <div className="topbar-main">
           <span>119 이송병원 조회</span>
