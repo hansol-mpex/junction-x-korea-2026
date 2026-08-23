@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   useEffect,
   useMemo,
@@ -561,14 +560,11 @@ export function Dashboard() {
     <div className="console">
       <header className="topbar">
         <div className="brand">
-          <Image
-            src="/guhaejo-mark.svg"
-            alt=""
-            width={30}
-            height={30}
-            priority
-          />
-          <strong>구해조</strong>
+          <span className="brand-wordmark" role="img" aria-label="구해조">
+            <strong aria-hidden="true">구</strong>
+            <em aria-hidden="true">해</em>
+            <strong aria-hidden="true">조</strong>
+          </span>
         </div>
         <div className="topbar-main">
           <span>119 이송병원 조회</span>

@@ -1,10 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 80" role="img" aria-labelledby="title description">
   <title id="title">구해조</title>
-  <desc id="description">환자를 필요한 치료가 가능한 병원으로 잇는 119 이송병원 조회 서비스</desc>
-  <rect x="8" y="8" width="80" height="80" fill="#201e1d"/>
-  <path d="M48 18v60M18 48h52" fill="none" stroke="#f8f7f7" stroke-width="5"/>
-  <path d="M42 30h12v12h12v12H54v12H42V54H30V42h12Z" fill="#ec3013"/>
-  <path d="m65 35 15 13-15 13Z" fill="#f8f7f7"/>
-  <text x="112" y="51" fill="#201e1d" font-family="Pretendard, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="3">구해조</text>
-  <text x="114" y="73" fill="#6f6b69" font-family="Pretendard, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">119 이송병원 조회</text>
+  <desc id="description">구조로도 읽히는 구해조 타이포그래피 로고</desc>
+  <text x="4" y="65" fill="#201e1d" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="58" font-weight="900" letter-spacing="-4">구</text>
+  <text x="75" y="65" fill="#201e1d" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="58" font-weight="900" letter-spacing="-4">조</text>
+  <text x="62" y="24" fill="#ec3013" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="17" font-weight="900">해</text>
 </svg>

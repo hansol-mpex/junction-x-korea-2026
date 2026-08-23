@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" fill="#201e1d"/>
-  <path d="M32 8v48M8 32h44" fill="none" stroke="#f8f7f7" stroke-width="4"/>
-  <path d="M27 18h10v9h9v10h-9v9H27v-9h-9V27h9Z" fill="#ec3013"/>
-  <path d="m46 22 12 10-12 10Z" fill="#f8f7f7"/>
+  <text x="4" y="48" fill="#f8f7f7" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="29" font-weight="900" letter-spacing="-3">구</text>
+  <text x="34" y="48" fill="#f8f7f7" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="29" font-weight="900" letter-spacing="-3">조</text>
+  <text x="27" y="18" fill="#ec3013" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="10" font-weight="900">해</text>
 </svg>

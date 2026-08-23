@@ -72,20 +72,33 @@ textarea:focus-visible {
   padding: 0 28px;
   display: flex;
   align-items: center;
-  gap: 11px;
   border-right: 2px solid var(--line);
 }
 
-.brand img {
-  width: 30px;
-  height: 30px;
-  flex: none;
+.brand-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
 }
 
-.brand strong {
-  font-size: 16px;
+.brand-wordmark strong {
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: -0.08em;
+}
+
+.brand-wordmark em {
+  width: 9px;
+  margin: 0 -2px;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-12px);
+  color: var(--accent);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
 }
 
 .topbar-main {
