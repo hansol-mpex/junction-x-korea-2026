@@ -13,7 +13,7 @@ export interface TransferSummaryTextInput {
 
 export function buildTransferSummaryText(input: TransferSummaryTextInput) {
   return [
-    "구해조 이송 후보 요약",
+    "응급실로 이송 후보 요약",
     `선택 시각: ${input.selectedAt}`,
     `신고 위치: ${input.location}`,
     `환자 상태: ${input.patientNarrative}`,

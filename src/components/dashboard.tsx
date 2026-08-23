@@ -560,10 +560,9 @@ export function Dashboard() {
     <div className="console">
       <header className="topbar">
         <div className="brand">
-          <span className="brand-wordmark" role="img" aria-label="구해조">
-            <strong aria-hidden="true">구</strong>
-            <em aria-hidden="true">해</em>
-            <strong aria-hidden="true">조</strong>
+          <span className="brand-wordmark" role="img" aria-label="응급실로">
+            <strong aria-hidden="true">응급실</strong>
+            <em aria-hidden="true">로</em>
           </span>
         </div>
         <div className="topbar-main">

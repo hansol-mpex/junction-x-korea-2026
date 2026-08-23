@@ -81,24 +81,16 @@ textarea:focus-visible {
   line-height: 1;
 }
 
-.brand-wordmark strong {
+.brand-wordmark strong,
+.brand-wordmark em {
   font-size: 24px;
   font-weight: 900;
   letter-spacing: -0.08em;
 }
 
 .brand-wordmark em {
-  width: 9px;
-  margin: 0 -2px;
-  position: relative;
-  z-index: 1;
-  transform: translateY(-7px);
   color: var(--accent);
-  font-size: 9px;
   font-style: normal;
-  font-weight: 900;
-  line-height: 1;
-  text-align: center;
 }
 
 .topbar-main {
