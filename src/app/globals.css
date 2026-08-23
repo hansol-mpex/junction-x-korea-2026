@@ -92,7 +92,7 @@ textarea:focus-visible {
   margin: 0 -2px;
   position: relative;
   z-index: 1;
-  transform: translateY(-12px);
+  transform: translateY(-7px);
   color: var(--accent);
   font-size: 9px;
   font-style: normal;
