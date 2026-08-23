@@ -2,6 +2,5 @@
   <rect width="64" height="64" fill="#201e1d"/>
   <text x="4" y="48" fill="#f8f7f7" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="29" font-weight="900" letter-spacing="-3">구</text>
   <text x="34" y="48" fill="#f8f7f7" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="29" font-weight="900" letter-spacing="-3">조</text>
-  <rect x="26" y="11" width="13" height="14" fill="#ec3013"/>
-  <text x="27.5" y="22" fill="#ffffff" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="10" font-weight="900">해</text>
+  <text x="27" y="23" fill="#ec3013" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="10" font-weight="900">해</text>
 </svg>
