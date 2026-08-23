@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1 align="center">
-  <img src="./public/guhaejo-logo.svg" alt="구해조" width="220" />
+  <img src="./public/guhaejo-wordmark.svg" alt="구해조" width="220" />
 </h1>
 
 **경상북도 119 상황요원의 이송병원 선정을 돕는 의사결정 보조 서비스**
