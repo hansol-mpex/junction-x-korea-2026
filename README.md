@@ -1,13 +1,13 @@
 <div align="center">
 
 <h1 align="center">
-  <img src="./public/eunggeupsillo-wordmark.svg" alt="응급실로" width="220" />
+  <img src="./public/eunggeupsillo-arrow-wordmark.svg" alt="응급실로" width="260" />
 </h1>
 
 **경상북도 119 상황요원의 이송병원 선정을 돕는 의사결정 보조 서비스**
 
 응급실로는 말 그대로 환자에게 필요한 치료가 가능한 응급실로 향하는 이송 결정을 돕는다는 의미를 담았습니다.
-워드마크의 마지막 `로`를 붉게 강조해 목적지와 이송 방향을 표현했습니다.
+워드마크의 마지막 `로`에서 뻗는 붉은 화살표로 목적지와 이송 방향을 표현했습니다.
 
 환자 상태에서 필요한 치료영역을 구조화하고, NEMC 수용정보와 실제 도로 ETA를 결합해
 

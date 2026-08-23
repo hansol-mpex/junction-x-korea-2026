@@ -75,22 +75,9 @@ textarea:focus-visible {
   border-right: 2px solid var(--line);
 }
 
-.brand-wordmark {
-  display: inline-flex;
-  align-items: baseline;
-  line-height: 1;
-}
-
-.brand-wordmark strong,
-.brand-wordmark em {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.08em;
-}
-
-.brand-wordmark em {
-  color: var(--accent);
-  font-style: normal;
+.brand-logo {
+  width: auto;
+  height: 31px;
 }
 
 .topbar-main {

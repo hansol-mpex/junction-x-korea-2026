@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="72" viewBox="0 0 220 72" role="img" aria-labelledby="title description">
+  <title id="title">응급실로</title>
+  <desc id="description">응급실로의 마지막 로에서 붉은 화살표가 오른쪽으로 뻗는 워드마크</desc>
+  <text x="4" y="58" fill="#201e1d" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="52" font-weight="900" letter-spacing="-4">응급실로</text>
+  <path d="M177 56V51C177 41 184 36 194 36H202" fill="none" stroke="#ffffff" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M177 56V51C177 41 184 36 194 36H202" fill="none" stroke="#ec3013" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M198 26L218 36L198 46Z" fill="#ec3013" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" paint-order="stroke"/>
+</svg>
