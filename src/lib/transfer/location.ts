@@ -158,7 +158,7 @@ export async function resolveLocation({
     {
       headers: {
         Accept: "application/json",
-        "User-Agent": "Songmin-Hackathon/0.1",
+        "User-Agent": "Guhaejo-Hackathon/0.1",
       },
       signal: AbortSignal.timeout(7_000),
       cache: "no-store",

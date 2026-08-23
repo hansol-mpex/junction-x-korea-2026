@@ -562,13 +562,13 @@ export function Dashboard() {
       <header className="topbar">
         <div className="brand">
           <Image
-            src="/songmin-mark.svg"
+            src="/guhaejo-mark.svg"
             alt=""
             width={30}
             height={30}
             priority
           />
-          <strong>송민</strong>
+          <strong>구해조</strong>
         </div>
         <div className="topbar-main">
           <span>119 이송병원 조회</span>
