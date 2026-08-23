@@ -141,65 +141,13 @@ API 호출량과 응답시간을 제어하기 위해 상태별 직선거리 순�
 | Test | Vitest, ESLint, TypeScript |
 | Deployment | Vercel |
 
-## 로컬 실행
-
-### 요구 사항
-
-- Node.js 20.9 이상
-- npm 10 이상
-- NEMC, Gemini, Kakao API 키
-
-### 설치
-
-```bash
-git clone https://github.com/hansol-mpex/junction-x-korea-2026.git
-cd junction-x-korea-2026
-npm ci
-```
-
-환경변수 파일을 만듭니다.
-
-```powershell
-Copy-Item .env.example .env.local
-```
-
-macOS 또는 Linux:
-
-```bash
-cp .env.example .env.local
-```
-
-`.env.local`에 키를 입력합니다.
-
-```dotenv
-NEMC_API_KEY=
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-3.5-flash-lite
-KAKAO_MOBILITY_REST_KEY=
-```
-
-| 변수 | 필수 | 설명 |
-| --- | :---: | --- |
-| `NEMC_API_KEY` | O | 공공데이터포털 응급의료정보조회서비스 인증키 |
-| `GEMINI_API_KEY` | O | Google AI Studio API 키 |
-| `GEMINI_MODEL` | 선택 | 생략 시 `gemini-3.5-flash-lite` |
-| `KAKAO_MOBILITY_REST_KEY` | O | Kakao REST API 키 |
-
-개발 서버를 시작합니다.
-
-```bash
-npm run dev
-```
-
-`http://localhost:3000`에서 확인합니다. API 준비 상태는 `http://localhost:3000/api/health`에서 확인할 수 있습니다.
-
 ## Vercel 배포
 
 GitHub Pages는 서버 API와 비밀 환경변수를 실행할 수 없어 전체 기능 배포에 적합하지 않습니다.
 
 1. [Vercel New Project](https://vercel.com/new)에서 이 GitHub 저장소를 Import합니다.
 2. Framework Preset은 `Next.js`, Root Directory는 `./`를 사용합니다.
-3. API 키 3개와 사용할 `GEMINI_MODEL`을 Production 환경에 등록합니다.
+3. `NEMC_API_KEY`, `GEMINI_API_KEY`, `KAKAO_MOBILITY_REST_KEY`와 사용할 `GEMINI_MODEL`을 Production 환경에 등록합니다.
 4. Build Command와 Output Directory는 Vercel 기본값을 유지합니다.
 5. Deploy 후 `https://배포주소/api/health`가 `status: "ready"`인지 확인합니다.
 
