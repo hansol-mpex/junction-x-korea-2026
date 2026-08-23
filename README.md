@@ -118,16 +118,6 @@ API 호출량과 응답시간을 제어하기 위해 상태별 직선거리 순�
 | Daum Postcode / Kakao Local | 도로명주소 선택과 좌표 확인 |
 | OpenStreetMap Nominatim | Kakao Local 조회 실패 시 위치 보조 검색 |
 
-### 실제 NEMC 응답에서 확인한 사항
-
-- 병원 목록의 지역 파라미터는 `Q0`입니다.
-- 병상과 수용정보는 시도 단위로 조회한 뒤 병원명이 아닌 `hpid`로 결합합니다.
-- 수용정보 필드는 실제 응답의 `MKioskTy1~28` 표기를 사용합니다.
-- `MKioskTy28`은 응급실 게이트키퍼이며 치료영역 선택 항목이 아닙니다.
-- `Y`는 병원이 보고한 조회 시점의 값이며 실제 수용을 보장하지 않습니다.
-- `N`, `N1`, `불가능`, `정보미제공`을 구분해 정규화합니다.
-- 병상 기준시각 `hvidate`는 KST `YYYYMMDDHHMMSS` 형식입니다.
-
 ## 기술 스택
 
 | 영역 | 기술 |
@@ -141,17 +131,6 @@ API 호출량과 응답시간을 제어하기 위해 상태별 직선거리 순�
 | Test | Vitest, ESLint, TypeScript |
 | Deployment | Vercel |
 
-## Vercel 배포
-
-GitHub Pages는 서버 API와 비밀 환경변수를 실행할 수 없어 전체 기능 배포에 적합하지 않습니다.
-
-1. [Vercel New Project](https://vercel.com/new)에서 이 GitHub 저장소를 Import합니다.
-2. Framework Preset은 `Next.js`, Root Directory는 `./`를 사용합니다.
-3. `NEMC_API_KEY`, `GEMINI_API_KEY`, `KAKAO_MOBILITY_REST_KEY`와 사용할 `GEMINI_MODEL`을 Production 환경에 등록합니다.
-4. Build Command와 Output Directory는 Vercel 기본값을 유지합니다.
-5. Deploy 후 `https://배포주소/api/health`가 `status: "ready"`인지 확인합니다.
-
-환경변수를 배포 후 추가하거나 변경했다면 최신 Deployment를 Redeploy해야 합니다. API 키를 `NEXT_PUBLIC_` 변수나 저장소 파일에 넣지 마세요.
 
 ## API
 
@@ -208,14 +187,6 @@ scripts/
 └─ watch-historical-metrics.mjs
 ```
 
-## 검증
-
-```bash
-npm test
-npm run lint
-npx tsc --noEmit
-npm run build
-```
 
 테스트는 다음 경계를 포함합니다.
 
