@@ -3,5 +3,6 @@
   <desc id="description">구조로도 읽히는 구해조 타이포그래피 로고</desc>
   <text x="4" y="65" fill="#201e1d" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="58" font-weight="900" letter-spacing="-4">구</text>
   <text x="75" y="65" fill="#201e1d" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="58" font-weight="900" letter-spacing="-4">조</text>
-  <text x="62" y="32" fill="#ec3013" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="17" font-weight="900">해</text>
+  <rect x="60" y="16" width="19" height="19" fill="#ec3013"/>
+  <text x="62" y="31" fill="#ffffff" font-family="Pretendard, Noto Sans KR, Malgun Gothic, sans-serif" font-size="14" font-weight="900">해</text>
 </svg>
